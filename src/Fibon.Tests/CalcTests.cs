@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Fibon.Service;
 using Xunit;
 
 namespace Fibon.Tests
@@ -8,8 +9,11 @@ namespace Fibon.Tests
     {
         [Theory]
         [MemberData(nameof(Numbers))]
-        public void DoWork(int number, int result)
+        public void DoWork(int number, int expectedResult)
         {
+            ICalculator calc = new SlowOne();
+            int result = calc.DoYourJob(number);
+            Assert.Equal(expectedResult, result);
         }
 
         public static IEnumerable<object[]> Numbers()

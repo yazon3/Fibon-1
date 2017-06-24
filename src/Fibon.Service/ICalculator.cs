@@ -14,7 +14,15 @@ namespace Fibon.Service
     {
         public int DoYourJob(int number)
         {
-            return int.MaxValue;
+            switch (number)
+            {
+                case 0:
+                    return 0;
+                case 1:
+                    return 1;
+                default:
+                    return DoYourJob(number - 2) + DoYourJob(number - 1);
+            }
         }
     }
 }

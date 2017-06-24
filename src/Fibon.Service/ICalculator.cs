@@ -7,12 +7,12 @@ namespace Fibon.Service
 {
     public interface ICalculator
     {
-        int DoYourJob(int number);
+        int CalculateFibonacci(int number);
     }
 
     public class SlowOne : ICalculator
     {
-        public int DoYourJob(int number)
+        public int CalculateFibonacci(int number)
         {
             switch (number)
             {
@@ -21,7 +21,7 @@ namespace Fibon.Service
                 case 1:
                     return 1;
                 default:
-                    return DoYourJob(number - 2) + DoYourJob(number - 1);
+                    return CalculateFibonacci(number - 2) + CalculateFibonacci(number - 1);
             }
         }
     }

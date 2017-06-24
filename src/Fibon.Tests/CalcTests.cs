@@ -9,10 +9,10 @@ namespace Fibon.Tests
     {
         [Theory]
         [MemberData(nameof(Numbers))]
-        public void DoWork(int number, int expectedResult)
+        public void FIbonacci_ReturnsCorrectValues(int number, int expectedResult)
         {
             ICalculator calc = new SlowOne();
-            int result = calc.DoYourJob(number);
+            int result = calc.CalculateFibonacci(number);
             Assert.Equal(expectedResult, result);
         }
 
